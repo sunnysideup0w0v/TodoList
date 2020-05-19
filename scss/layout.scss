@@ -5,7 +5,7 @@ html {
     font-size: 10px;
 }
 body {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-family: 'Titillium Web', sans-serif;
     color: #333;
 }
@@ -36,6 +36,7 @@ button {
             left: 30px;
             top: 50%;
             transform: translateY(-50%);
+            font-size: 50px;
         }
     }
     .addList {
@@ -51,6 +52,7 @@ button {
             line-height: 45px;
             outline: none;
             border: 1px solid #d9d9d9;
+            padding-left: 30px;
         }
         button {
             border-top-right-radius: 10px;
@@ -67,7 +69,7 @@ button {
     }
     .itemList {
         width: 100%;
-        height: 70%;
+        height: 35%;
         padding: 0 30px;
         position: relative;
         ul {
@@ -104,7 +106,14 @@ button {
             cursor: pointer;
             color: rgb(160, 18, 18);
             font-weight: 700;
-            margin-top: 30px;
+        }
+    }
+    .inBasket {
+        width: 100%;
+        height: 35%;
+        padding: 0 0 0 30px;
+        h2 {
+            font-size: 3rem;
         }
     }
 }
