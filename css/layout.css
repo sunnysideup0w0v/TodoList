@@ -17,6 +17,11 @@ button {
   font-size: 1.6rem;
 }
 
+h2 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
 .container {
   width: 100%;
   height: 100vh;
@@ -44,6 +49,25 @@ button {
   font-size: 50px;
 }
 
+.container .bg button {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10%;
+  padding: 10px;
+  color: #fff;
+  bottom: 10px;
+  right: 20px;
+  position: absolute;
+}
+
+.container .bg button i {
+  font-size: 2rem;
+}
+
+.container .bg button span {
+  display: block;
+  font-size: 1.5rem;
+}
+
 .container .addList {
   width: 100%;
   height: 10%;
@@ -55,7 +79,7 @@ button {
   margin: 20px 0;
   border-radius: 10px;
   width: 100%;
-  height: 45px;
+  height: 35px;
   line-height: 45px;
   outline: none;
   border: 1px solid #d9d9d9;
@@ -67,7 +91,7 @@ button {
   border-bottom-right-radius: 10px;
   position: absolute;
   right: 30px;
-  height: 45px;
+  height: 35px;
   background-color: #326aa2;
   top: 20px;
   padding: 0 10px;
@@ -117,14 +141,44 @@ button {
   cursor: pointer;
   color: #a01212;
   font-weight: 700;
+  transition: 0.5s ease;
+}
+
+.container .itemList button.none {
+  display: none;
 }
 
 .container .inBasket {
   width: 100%;
   height: 35%;
-  padding: 0 0 0 30px;
+  padding: 0 30px;
+  position: relative;
 }
 
-.container .inBasket h2 {
-  font-size: 3rem;
+.container .inBasket ul li {
+  font-weight: 700;
+  width: 100%;
+  padding: 10px 25px;
+  position: relative;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.container .inBasket ul li i {
+  position: absolute;
+  right: 0;
+  color: #a01212;
+  cursor: pointer;
+}
+
+.container .inBasket ul li:after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 10px;
+  border-radius: 100%;
+  width: 5px;
+  height: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #444;
 }
