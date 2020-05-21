@@ -27,6 +27,7 @@ h2 {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .container .bg {
@@ -44,7 +45,7 @@ h2 {
   color: #fff;
   position: absolute;
   left: 30px;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   font-size: 50px;
 }
@@ -52,11 +53,13 @@ h2 {
 .container .bg button {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10%;
-  padding: 10px;
+  width: 100px;
+  height: 70px;
   color: #fff;
   bottom: 10px;
   right: 20px;
   position: absolute;
+  z-index: 2;
 }
 
 .container .bg button i {
@@ -66,6 +69,28 @@ h2 {
 .container .bg button span {
   display: block;
   font-size: 1.5rem;
+}
+
+.container .bg .alert {
+  color: #8a0a0a;
+  font-weight: 700;
+  font-size: 2.4rem;
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  height: 30px;
+}
+
+.container .bg .alert > div {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+.container .bg .alert .off {
+  display: block;
+  animation-name: showHide;
+  animation-duration: 3s;
 }
 
 .container .addList {
@@ -181,4 +206,16 @@ h2 {
   top: 50%;
   transform: translateY(-50%);
   background-color: #444;
+}
+
+@keyframes showHide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

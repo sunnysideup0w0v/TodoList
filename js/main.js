@@ -4,8 +4,9 @@ let itemList = document.querySelector(".itemList ul");
 let itemLi = document.querySelectorAll(".itemList ul li")
 let clearWillBuy = document.querySelector(".itemList button");
 let basketList = document.querySelector(".inBasket ul");
-let clearAllList = document.querySelector(".bg button")
-
+let clearAllList = document.querySelector(".bg button");
+let novalue = document.getElementsByClassName("noValue");
+let noItem = document.getElementsByClassName("noItem");
 
 // function remove(){
 //     let deleteLi = document.querySelectorAll(".itemList li i");
@@ -21,11 +22,11 @@ let clearAllList = document.querySelector(".bg button")
 // remove();
 
 function check(){
-    itemLi = document.querySelectorAll(".itemList ul li")
+    itemLi = document.querySelectorAll(".itemList ul li");
     if(itemLi.length === 0){
-        clearWillBuy.classList.add("none")
+        clearWillBuy.classList.add("none");
     } else {
-        clearWillBuy.classList.remove("none")
+        clearWillBuy.classList.remove("none");
     }
 }
 
@@ -35,17 +36,24 @@ function addList(){
     let value = input.value;
     let node = document.createElement("li");
     let li = `${value} <i class="xi-trash""></i>`
-    node.innerHTML = li;
-    node.children[0].addEventListener("click",function(e){
-        if(e.target.tagName.toLowerCase() === 'i'){
-            node.children[0].parentElement.remove();
-            node.children[0].remove();
-            basketList.appendChild(node);
-        }
-        check();
-    });
-    itemList.appendChild(node);
-    input.value = "";
+    if(value ===""){
+        novalue[0].classList.add("off")
+        setTimeout(function(){
+            novalue[0].classList.remove("off")
+        },2500)
+    } else {
+        node.innerHTML = li;
+        node.children[0].addEventListener("click",function(e){
+            if(e.target.tagName.toLowerCase() === 'i'){
+                node.children[0].parentElement.remove();
+                node.children[0].remove();
+                basketList.appendChild(node);
+            }
+            check();
+        });
+        itemList.appendChild(node);
+        input.value = "";
+    }
     check();
 }
 
@@ -55,23 +63,28 @@ input.addEventListener("keydown",function(){
     }
 })
 
-// dynamic element cannot listen event.
-
 clearWillBuy.addEventListener("click",function(){
     itemLi.forEach(function(li){
         li.remove();
-    })
+    });
     check();
 })
 
 clearAllList.addEventListener("click",function(){
     itemLi = document.querySelectorAll(".itemList ul li");
     let basketLi = document.querySelectorAll(".inBasket ul li");
-    itemLi.forEach(function(li){
-        li.remove();
-    })
-    basketLi.forEach(function(li){
-        li.remove();
-    })
+    if(itemLi.length === 0 && basketLi.length === 0){
+        noItem[0].classList.add("off");
+        setTimeout(function(){
+            noItem[0].classList.remove("off")
+        },2500)
+    } else {
+        itemLi.forEach(function(li){
+            li.remove();
+        });
+        basketLi.forEach(function(li){
+            li.remove();
+        });
+    }
     check();
 })
